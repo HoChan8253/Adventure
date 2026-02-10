@@ -26,15 +26,21 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         _movement = _playerControls.Movement.Move.ReadValue<Vector2>();
-
         _anim.SetFloat(HashSpeed, _movement.magnitude);
-
-        if (_movement.x < -0.01f) _sr.flipX = true;
-        else if (_movement.x > 0.01f) _sr.flipX = false;
     }
 
     private void FixedUpdate()
     {
         _rb.MovePosition(_rb.position + _movement * (_moveSpeed * Time.fixedDeltaTime));
+        UpdateFacingByMouse();
+    }
+
+    // 마우스 위치 기준으로 방향 전환
+    private void UpdateFacingByMouse()
+    {
+        Vector3 mousePos = Input.mousePosition;
+        Vector3 playerScreenPos = Camera.main.WorldToScreenPoint(transform.position);
+
+        _sr.flipX = mousePos.x < playerScreenPos.x;
     }
 }
