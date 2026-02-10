@@ -294,6 +294,7 @@ GameObject:
   - component: {fileID: 286962170}
   - component: {fileID: 286962175}
   - component: {fileID: 286962174}
+  - component: {fileID: 286962176}
   m_Layer: 0
   m_Name: Blue Slime
   m_TagString: Untagged
@@ -442,6 +443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cc664e74b4e5364eb4e4ce751d52b50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _moveSpeed: 2
 --- !u!114 &286962175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -454,6 +456,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b03d2a8de36a5ae4d9d6b514078c6d3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &286962176
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286962169}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 45e45a470d2fd0845af855819f7f3d9c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &396982447
 PrefabInstance:
   m_ObjectHideFlags: 0
