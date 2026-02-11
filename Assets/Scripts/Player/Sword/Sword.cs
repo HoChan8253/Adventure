@@ -7,11 +7,13 @@ public class Sword : MonoBehaviour
     [SerializeField] private GameObject _slashAnimPrefab;
     [SerializeField] private Transform _slashAnimSpawnPoint;
     [SerializeField] private Transform _weaponCollider;
+    [SerializeField] private float _swordAttackCD = 0.5f;
 
     private PlayerControls _playerControls;
     private Animator _myAnimator;
     private PlayerController _playerController;
     private ActiveWeapon _activeWeapon;
+    private bool _attackButtonDown, _isAttacking = false;
 
     private GameObject _slashAnim;
 
@@ -30,21 +32,43 @@ public class Sword : MonoBehaviour
 
     void Start()
     {
-        _playerControls.Combat.Attack.started += _ => Attack();
+        _playerControls.Combat.Attack.started += _ => StartAttacking();
+        _playerControls.Combat.Attack.canceled += _ => StopAttacking();
     }
 
     private void Update()
     {
         MouseFollowWithOffset();
+        Attack();
+    }
+
+    private void StartAttacking()
+    {
+        _attackButtonDown = true;
+    }
+
+    private void StopAttacking()
+    {
+        _attackButtonDown = false;
     }
 
     private void Attack()
     {
-        _myAnimator.SetTrigger("Attack");
-        _weaponCollider.gameObject.SetActive(true);
+        if (_attackButtonDown && !_isAttacking)
+        {
+            _isAttacking = true;
+            _myAnimator.SetTrigger("Attack");
+            _weaponCollider.gameObject.SetActive(true);
+            _slashAnim = Instantiate(_slashAnimPrefab, _slashAnimSpawnPoint.position, Quaternion.identity);
+            _slashAnim.transform.parent = this.transform.parent;
+            StartCoroutine(AttackCDRoutine());
+        }
+    }
 
-        _slashAnim = Instantiate(_slashAnimPrefab, _slashAnimSpawnPoint.position, Quaternion.identity);
-        _slashAnim.transform.parent = this.transform.parent;
+    private IEnumerator AttackCDRoutine()
+    {
+        yield return new WaitForSeconds(_swordAttackCD);
+        _isAttacking = false;
     }
 
     public void DoneAttackingAnimEvent()
