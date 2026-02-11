@@ -4,29 +4,29 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public bool FacingLeft { get { return facingLeft; } set { facingLeft = value; } }
+    public bool FacingLeft { get { return _facingLeft; } set { _facingLeft = value; } }
 
     [SerializeField] private float moveSpeed = 3f;
 
-    private PlayerControls playerControls;
-    private Vector2 movement;
-    private Rigidbody2D rb;
-    private Animator myAnimator;
-    private SpriteRenderer mySpriteRender;
+    private PlayerControls _playerControls;
+    private Vector2 _movement;
+    private Rigidbody2D _rb;
+    private Animator _myAnimator;
+    private SpriteRenderer _mySpriteRender;
 
-    private bool facingLeft = false;
+    private bool _facingLeft = false;
 
     private void Awake()
     {
-        playerControls = new PlayerControls();
-        rb = GetComponent<Rigidbody2D>();
-        myAnimator = GetComponent<Animator>();
-        mySpriteRender = GetComponent<SpriteRenderer>();
+        _playerControls = new PlayerControls();
+        _rb = GetComponent<Rigidbody2D>();
+        _myAnimator = GetComponent<Animator>();
+        _mySpriteRender = GetComponent<SpriteRenderer>();
     }
 
     private void OnEnable()
     {
-        playerControls.Enable();
+        _playerControls.Enable();
     }
 
     private void Update()
@@ -42,15 +42,15 @@ public class PlayerController : MonoBehaviour
 
     private void PlayerInput()
     {
-        movement = playerControls.Movement.Move.ReadValue<Vector2>();
+        _movement = _playerControls.Movement.Move.ReadValue<Vector2>();
 
-        myAnimator.SetFloat("moveX", movement.x);
-        myAnimator.SetFloat("moveY", movement.y);
+        _myAnimator.SetFloat("moveX", _movement.x);
+        _myAnimator.SetFloat("moveY", _movement.y);
     }
 
     private void Move()
     {
-        rb.MovePosition(rb.position + movement * (moveSpeed * Time.fixedDeltaTime));
+        _rb.MovePosition(_rb.position + _movement * (moveSpeed * Time.fixedDeltaTime));
     }
 
     private void AdjustPlayerFacingDirection()
@@ -60,12 +60,12 @@ public class PlayerController : MonoBehaviour
 
         if (mousePos.x < playerScreenPoint.x)
         {
-            mySpriteRender.flipX = true;
+            _mySpriteRender.flipX = true;
             FacingLeft = true;
         }
         else
         {
-            mySpriteRender.flipX = false;
+            _mySpriteRender.flipX = false;
             FacingLeft = false;
         }
     }
