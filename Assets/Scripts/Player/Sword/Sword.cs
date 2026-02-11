@@ -81,7 +81,7 @@ public class Sword : MonoBehaviour
     {
         _slashAnim.gameObject.transform.rotation = Quaternion.Euler(-180, 0, 0);
 
-        if (_playerController.FacingLeft)
+        if (_playerController._FacingLeft)
         {
             _slashAnim.GetComponent<SpriteRenderer>().flipX = true;
         }
@@ -91,7 +91,7 @@ public class Sword : MonoBehaviour
     {
         _slashAnim.gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
 
-        if (_playerController.FacingLeft)
+        if (_playerController._FacingLeft)
         {
             _slashAnim.GetComponent<SpriteRenderer>().flipX = true;
         }
