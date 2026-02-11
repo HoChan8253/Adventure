@@ -1,12 +1,13 @@
-﻿using System.Collections;
+﻿using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     public bool FacingLeft { get { return _facingLeft; } set { _facingLeft = value; } }
+    public static PlayerController _Instance;
 
-    [SerializeField] private float moveSpeed = 3f;
+    [SerializeField] private float _moveSpeed = 3f;
 
     private PlayerControls _playerControls;
     private Vector2 _movement;
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        _Instance = this;
         _playerControls = new PlayerControls();
         _rb = GetComponent<Rigidbody2D>();
         _myAnimator = GetComponent<Animator>();
@@ -50,7 +52,7 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        _rb.MovePosition(_rb.position + _movement * (moveSpeed * Time.fixedDeltaTime));
+        _rb.MovePosition(_rb.position + _movement * (_moveSpeed * Time.fixedDeltaTime));
     }
 
     private void AdjustPlayerFacingDirection()

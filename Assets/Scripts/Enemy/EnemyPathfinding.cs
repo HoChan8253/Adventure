@@ -1,6 +1,6 @@
-﻿using System.Collections;
+﻿using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class EnemyPathfinding : MonoBehaviour
 {
@@ -8,14 +8,18 @@ public class EnemyPathfinding : MonoBehaviour
 
     private Rigidbody2D _rb;
     private Vector2 _moveDir;
+    private Knockback _knockback;
 
     private void Awake()
     {
+        _knockback = GetComponent<Knockback>();
         _rb = GetComponent<Rigidbody2D>();
     }
 
     private void FixedUpdate()
     {
+        if (_knockback._gettingKnockedBack) { return; }
+
         _rb.MovePosition(_rb.position + _moveDir * (_moveSpeed * Time.fixedDeltaTime));
     }
 

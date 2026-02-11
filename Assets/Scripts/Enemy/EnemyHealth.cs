@@ -1,28 +1,36 @@
-﻿using System.Collections;
+﻿using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    [SerializeField] private int startingHealth = 3;
+    [SerializeField] private int _startingHealth = 3;
 
-    private int currentHealth;
+    private int _currentHealth;
+    private Knockback _knockback;
+    private Flash _flash;
+
+    private void Awake()
+    {
+        _flash = GetComponent<Flash>();
+        _knockback = GetComponent<Knockback>();
+    }
 
     private void Start()
     {
-        currentHealth = startingHealth;
+        _currentHealth = _startingHealth;
     }
 
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
-        Debug.Log(currentHealth);
-        DetectDeath();
+        _currentHealth -= damage;
+        _knockback.GetKnockedBack(PlayerController._Instance.transform, 15f);
+        StartCoroutine(_flash.FlashRoutine());
     }
 
-    private void DetectDeath()
+    public void DetectDeath()
     {
-        if (currentHealth <= 0)
+        if (_currentHealth <= 0)
         {
             Destroy(gameObject);
         }
