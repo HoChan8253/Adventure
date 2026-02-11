@@ -1,46 +1,72 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float _moveSpeed = 3f;
+    public bool FacingLeft { get { return facingLeft; } set { facingLeft = value; } }
 
-    private PlayerControls _playerControls;
-    private Vector2 _movement;
-    private Rigidbody2D _rb;
-    private Animator _anim;
-    private SpriteRenderer _sr;
+    [SerializeField] private float moveSpeed = 3f;
 
-    private static readonly int HashSpeed = Animator.StringToHash("Speed");
+    private PlayerControls playerControls;
+    private Vector2 movement;
+    private Rigidbody2D rb;
+    private Animator myAnimator;
+    private SpriteRenderer mySpriteRender;
+
+    private bool facingLeft = false;
 
     private void Awake()
     {
-        _playerControls = new PlayerControls();
-        _rb = GetComponent<Rigidbody2D>();
-        _anim = GetComponentInChildren<Animator>();
-        _sr = GetComponentInChildren<SpriteRenderer>();
+        playerControls = new PlayerControls();
+        rb = GetComponent<Rigidbody2D>();
+        myAnimator = GetComponent<Animator>();
+        mySpriteRender = GetComponent<SpriteRenderer>();
     }
 
-    private void OnEnable() => _playerControls.Enable();
-    private void OnDisable() => _playerControls.Disable();
+    private void OnEnable()
+    {
+        playerControls.Enable();
+    }
 
     private void Update()
     {
-        _movement = _playerControls.Movement.Move.ReadValue<Vector2>();
-        _anim.SetFloat(HashSpeed, _movement.magnitude);
+        PlayerInput();
     }
 
     private void FixedUpdate()
     {
-        _rb.MovePosition(_rb.position + _movement * (_moveSpeed * Time.fixedDeltaTime));
-        UpdateFacingByMouse();
+        AdjustPlayerFacingDirection();
+        Move();
     }
 
-    // 마우스 위치 기준으로 방향 전환
-    private void UpdateFacingByMouse()
+    private void PlayerInput()
+    {
+        movement = playerControls.Movement.Move.ReadValue<Vector2>();
+
+        myAnimator.SetFloat("moveX", movement.x);
+        myAnimator.SetFloat("moveY", movement.y);
+    }
+
+    private void Move()
+    {
+        rb.MovePosition(rb.position + movement * (moveSpeed * Time.fixedDeltaTime));
+    }
+
+    private void AdjustPlayerFacingDirection()
     {
         Vector3 mousePos = Input.mousePosition;
-        Vector3 playerScreenPos = Camera.main.WorldToScreenPoint(transform.position);
+        Vector3 playerScreenPoint = Camera.main.WorldToScreenPoint(transform.position);
 
-        _sr.flipX = mousePos.x < playerScreenPos.x;
+        if (mousePos.x < playerScreenPoint.x)
+        {
+            mySpriteRender.flipX = true;
+            FacingLeft = true;
+        }
+        else
+        {
+            mySpriteRender.flipX = false;
+            FacingLeft = false;
+        }
     }
 }
