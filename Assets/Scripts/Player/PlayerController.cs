@@ -2,10 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : Singleton<PlayerController>
 {
     public bool _FacingLeft { get { return _facingLeft; } }
-    public static PlayerController _Instance;
 
     [SerializeField] private float _moveSpeed = 4f;
     [SerializeField] private float _dashSpeed = 5f;
@@ -21,9 +20,9 @@ public class PlayerController : MonoBehaviour
     private bool _facingLeft = false;
     private bool _isDashing = false;
 
-    private void Awake()
+    protected override void Awake()
     {
-        _Instance = this;
+        base.Awake();
         _playerControls = new PlayerControls();
         _rb = GetComponent<Rigidbody2D>();
         _myAnimator = GetComponent<Animator>();

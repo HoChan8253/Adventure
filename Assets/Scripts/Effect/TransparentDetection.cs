@@ -6,29 +6,29 @@ using System.Collections.Generic;
 public class TransparentDetection : MonoBehaviour
 {
     [Range(0, 1)]
-    [SerializeField] private float transparencyAmount = 0.8f;
-    [SerializeField] private float fadeTime = 0.4f;
+    [SerializeField] private float _transparencyAmount = 0.8f;
+    [SerializeField] private float _fadeTime = 0.4f;
 
-    private SpriteRenderer spriteRenderer;
-    private Tilemap tilemap;
+    private SpriteRenderer _spriteRenderer;
+    private Tilemap _tilemap;
 
     private void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        tilemap = GetComponent<Tilemap>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _tilemap = GetComponent<Tilemap>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.GetComponent<PlayerController>())
         {
-            if (spriteRenderer)
+            if (_spriteRenderer)
             {
-                StartCoroutine(FadeRoutine(spriteRenderer, fadeTime, spriteRenderer.color.a, transparencyAmount));
+                StartCoroutine(FadeRoutine(_spriteRenderer, _fadeTime, _spriteRenderer.color.a, _transparencyAmount));
             }
-            else if (tilemap)
+            else if (_tilemap)
             {
-                StartCoroutine(FadeRoutine(tilemap, fadeTime, tilemap.color.a, transparencyAmount));
+                StartCoroutine(FadeRoutine(_tilemap, _fadeTime, _tilemap.color.a, _transparencyAmount));
             }
         }
     }
@@ -37,13 +37,13 @@ public class TransparentDetection : MonoBehaviour
     {
         if (other.gameObject.GetComponent<PlayerController>())
         {
-            if (spriteRenderer)
+            if (_spriteRenderer)
             {
-                StartCoroutine(FadeRoutine(spriteRenderer, fadeTime, spriteRenderer.color.a, 1f));
+                StartCoroutine(FadeRoutine(_spriteRenderer, _fadeTime, _spriteRenderer.color.a, 1f));
             }
-            else if (tilemap)
+            else if (_tilemap)
             {
-                StartCoroutine(FadeRoutine(tilemap, fadeTime, tilemap.color.a, 1f));
+                StartCoroutine(FadeRoutine(_tilemap, _fadeTime, _tilemap.color.a, 1f));
             }
         }
     }
