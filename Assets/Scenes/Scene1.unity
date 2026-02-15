@@ -537,7 +537,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da52f6a992d3629479128d412876e296, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentActiveWeapon: {fileID: 0}
 --- !u!4 &70156063 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 664873457699581610, guid: b788d7d6f67b327479adfbd3cb6321a4, type: 3}
@@ -48511,6 +48510,7 @@ MonoBehaviour:
   _moveSpeed: 4
   _dashSpeed: 5
   _myTrailRenderer: {fileID: 1228651682}
+  _weaponCollider: {fileID: 1974997357}
 --- !u!70 &2018447512
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

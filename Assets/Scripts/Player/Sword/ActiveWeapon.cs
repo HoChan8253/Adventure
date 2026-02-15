@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class ActiveWeapon : Singleton<ActiveWeapon>
 {
-    [SerializeField] private MonoBehaviour _currentActiveWeapon;
+    public MonoBehaviour _CurrentActiveWeapon { get; private set; }
 
     private PlayerControls _playerControls;
 
@@ -33,6 +33,16 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
         Attack();
     }
 
+    public void NewWeapon(MonoBehaviour newWeapon)
+    {
+        _CurrentActiveWeapon = newWeapon;
+    }
+
+    public void WeaponNull()
+    {
+        _CurrentActiveWeapon = null;
+    }
+
     public void ToggleIsAttacking(bool value)
     {
         _isAttacking = value;
@@ -53,7 +63,7 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
         if (_attackButtonDown && !_isAttacking)
         {
             _isAttacking = true;
-            (_currentActiveWeapon as IWeapon).Attack();
+            (_CurrentActiveWeapon as IWeapon).Attack();
         }
     }
 }
