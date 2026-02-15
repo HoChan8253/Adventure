@@ -36,6 +36,8 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
     public void NewWeapon(MonoBehaviour newWeapon)
     {
         _CurrentActiveWeapon = newWeapon;
+        _attackButtonDown = false;
+        _isAttacking = false;
     }
 
     public void WeaponNull()
