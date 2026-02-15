@@ -5,6 +5,17 @@ using System.Collections.Generic;
 public class Staff : MonoBehaviour, IWeapon
 {
     [SerializeField] private WeaponInfo _weaponInfo;
+    [SerializeField] private GameObject _magicLaser;
+    [SerializeField] private Transform _magicLaserSpawnPoint;
+
+    private Animator _myAnimator;
+
+    readonly int AttackHash = Animator.StringToHash("Attack");
+
+    private void Awake()
+    {
+        _myAnimator = GetComponent<Animator>();
+    }
 
     private void Update()
     {
@@ -13,7 +24,17 @@ public class Staff : MonoBehaviour, IWeapon
 
     public void Attack()
     {
-        Debug.Log("Staff Attack");
+        _myAnimator.SetTrigger(AttackHash);
+    }
+
+    public void SpawnStaffProjectileAnimEvent()
+    {
+        GameObject newLaser = Instantiate(_magicLaser, _magicLaserSpawnPoint.position, Quaternion.identity);
+    }
+
+    public WeaponInfo GetWeaponInfo()
+    {
+        return _weaponInfo;
     }
 
     private void MouseFollowWithOffset()
@@ -31,10 +52,5 @@ public class Staff : MonoBehaviour, IWeapon
         {
             ActiveWeapon._Instance.transform.rotation = Quaternion.Euler(0, 0, angle);
         }
-    }
-
-    public WeaponInfo GetWeaponInfo()
-    {
-        return _weaponInfo;
     }
 }
