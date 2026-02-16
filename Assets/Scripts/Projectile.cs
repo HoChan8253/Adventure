@@ -35,13 +35,17 @@ public class Projectile : MonoBehaviour
 
         if (!other.isTrigger && (enemyHealth || indestructible || player))
         {
-            if (player && _isEnemyProjectile)
+            if ((player && _isEnemyProjectile) || (enemyHealth && !_isEnemyProjectile))
             {
-                player.TakeDamage(1, transform);
+                player?.TakeDamage(1, transform);
+                Instantiate(_particleOnHitPrefabVFX, transform.position, transform.rotation);
+                Destroy(gameObject);
             }
-
-            Instantiate(_particleOnHitPrefabVFX, transform.position, transform.rotation);
-            Destroy(gameObject);
+            else if (!other.isTrigger && indestructible)
+            {
+                Instantiate(_particleOnHitPrefabVFX, transform.position, transform.rotation);
+                Destroy(gameObject);
+            }
         }
     }
 
