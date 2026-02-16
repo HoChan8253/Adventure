@@ -48395,6 +48395,9 @@ GameObject:
   - component: {fileID: 2018447510}
   - component: {fileID: 2018447511}
   - component: {fileID: 2018447512}
+  - component: {fileID: 2018447515}
+  - component: {fileID: 2018447514}
+  - component: {fileID: 2018447513}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -48571,6 +48574,48 @@ CapsuleCollider2D:
   m_Offset: {x: -0.038092513, y: -0.102812804}
   m_Size: {x: 0.68810254, y: 0.49078763}
   m_Direction: 1
+--- !u!114 &2018447513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018447506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfc2be7ce76f522499eaf845dcdb0d42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _knockBackTime: 0.2
+--- !u!114 &2018447514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018447506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4d2e4c9215869c4b8855874582026fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _whiteFlashMat: {fileID: 2100000, guid: cddf8a30bdadfa946858cabcad3044b5, type: 2}
+  _restoreDefaultMatTime: 0.2
+--- !u!114 &2018447515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018447506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 947b309207c2de7448bc61c205582597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 3
+  _knockBackThrustAmount: 10
+  _damageRecoveryTime: 1
 --- !u!1 &2023049279
 GameObject:
   m_ObjectHideFlags: 0
