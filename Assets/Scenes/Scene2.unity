@@ -5691,6 +5691,14 @@ PrefabInstance:
       propertyPath: m_ChildCameras.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2543024811199816616, guid: 74d6ef4c78aeba542b50c73b1d19cee0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.670167
+      objectReference: {fileID: 0}
+    - target: {fileID: 3113610102324992378, guid: 74d6ef4c78aeba542b50c73b1d19cee0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3569273522413645404, guid: 74d6ef4c78aeba542b50c73b1d19cee0, type: 3}
       propertyPath: m_Name
       value: Camera
@@ -19025,7 +19033,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6372110113436425660, guid: fb0ccd2d702e4f241976a6b7ddbbed33, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6372110113436425660, guid: fb0ccd2d702e4f241976a6b7ddbbed33, type: 3}
       propertyPath: m_LocalPosition.y
@@ -50330,7 +50338,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1997725739}
   m_Layer: 0
-  m_Name: Tileset
+  m_Name: Environment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
