@@ -4,12 +4,20 @@ using System.Collections.Generic;
 
 public class Pickup : MonoBehaviour
 {
-    [SerializeField] private float _pickUpDistance = 5f;
-    [SerializeField] private float _accelartionRate = .2f;
-    [SerializeField] private float _moveSpeed = 3f;
+    private enum PickUpType
+    {
+        GoldCoin,
+        StaminaGlobe,
+        HealthGlobe,
+    }
+
+    [SerializeField] private PickUpType _pickUpType;
+    [SerializeField] private float _pickUpDistance = 4f;
+    [SerializeField] private float _accelartionRate = 0.5f;
+    [SerializeField] private float _moveSpeed = 10f;
     [SerializeField] private AnimationCurve _animCurve;
     [SerializeField] private float _heightY = 1.5f;
-    [SerializeField] private float _popDuration = 1f;
+    [SerializeField] private float _popDuration = 0.5f;
 
     private Vector3 _moveDir;
     private Rigidbody2D _rb;
@@ -49,6 +57,7 @@ public class Pickup : MonoBehaviour
     {
         if (other.gameObject.GetComponent<PlayerController>())
         {
+            DetectPickupType();
             Destroy(gameObject);
         }
     }
@@ -72,6 +81,25 @@ public class Pickup : MonoBehaviour
 
             transform.position = Vector2.Lerp(startPoint, endPoint, linearT) + new Vector2(0f, height);
             yield return null;
+        }
+    }
+
+    private void DetectPickupType()
+    {
+        switch (_pickUpType)
+        {
+            case PickUpType.GoldCoin:
+                // do goldcoin stuff
+                Debug.Log("GoldCoin");
+                break;
+            case PickUpType.HealthGlobe:
+                PlayerHealth._Instance.HealPlayer();
+                Debug.Log("HealthGlobe");
+                break;
+            case PickUpType.StaminaGlobe:
+                // do stamina globe stuff
+                Debug.Log("StaminaGlobe");
+                break;
         }
     }
 }
