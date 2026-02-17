@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1139715288230925756}
   - component: {fileID: -4425176976686088369}
   - component: {fileID: 961365088835241372}
+  - component: {fileID: 5271507119116468092}
   m_Layer: 0
   m_Name: Crate_1
   m_TagString: Untagged
@@ -134,3 +135,16 @@ CapsuleCollider2D:
   m_Offset: {x: 0.0021839738, y: 0.06552029}
   m_Size: {x: 0.75975907, y: 0.8689594}
   m_Direction: 0
+--- !u!114 &5271507119116468092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3874230987693327679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d70309c8518a1444e80215186c5e05c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _goinCoinPrefab: {fileID: 3724385036988796345, guid: 0766102b43447f149ad3f504ffe9cea6, type: 3}
