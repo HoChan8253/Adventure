@@ -9,7 +9,8 @@ public class PlayerHealth : Singleton<PlayerHealth>
     [SerializeField] private float _knockBackThrustAmount = 10f;
     [SerializeField] private float _damageRecoveryTime = 1f;
 
-    private Slider _healthSlider;
+    [SerializeField] private Slider _healthSlider;
+
     private int _currentHealth;
     private bool _canTakeDamage = true;
     private Knockback _knockback;
@@ -82,7 +83,8 @@ public class PlayerHealth : Singleton<PlayerHealth>
     {
         if (_healthSlider == null)
         {
-            _healthSlider = GameObject.Find("Health Slider").GetComponent<Slider>();
+            var go = GameObject.Find("Health Slider");
+            if (go != null) _healthSlider = go.GetComponent<Slider>();
         }
 
         _healthSlider.maxValue = _maxHealth;
