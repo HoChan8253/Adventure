@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74bb21db801bb9044ba5babb9cb150c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transparencyAmount: 0.8
+  _transparencyAmount: 0.7
   _fadeTime: 0.4
 --- !u!114 &6715544504711204823
 MonoBehaviour:

@@ -17868,7 +17868,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74bb21db801bb9044ba5babb9cb150c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transparencyAmount: 0.9
+  _transparencyAmount: 0.7
   _fadeTime: 0.4
 --- !u!19719996 &691335112
 TilemapCollider2D:
@@ -52135,6 +52135,14 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 2018447508}
+    - target: {fileID: 2543024811199816616, guid: 74d6ef4c78aeba542b50c73b1d19cee0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.3298329
+      objectReference: {fileID: 0}
+    - target: {fileID: 3113610102324992378, guid: 74d6ef4c78aeba542b50c73b1d19cee0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3569273522413645404, guid: 74d6ef4c78aeba542b50c73b1d19cee0, type: 3}
       propertyPath: m_Name
       value: Camera
