@@ -1,13 +1,13 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class PlayerController : Singleton<PlayerController>
 {
     public bool _FacingLeft { get { return _facingLeft; } }
 
-    [SerializeField] private float _moveSpeed = 4f;
-    [SerializeField] private float _dashSpeed = 5f;
+    [SerializeField] private float _moveSpeed = 1f;
+    [SerializeField] private float _dashSpeed = 4f;
     [SerializeField] private TrailRenderer _myTrailRenderer;
     [SerializeField] private Transform _weaponCollider;
 
@@ -25,6 +25,7 @@ public class PlayerController : Singleton<PlayerController>
     protected override void Awake()
     {
         base.Awake();
+
         _playerControls = new PlayerControls();
         _rb = GetComponent<Rigidbody2D>();
         _myAnimator = GetComponent<Animator>();
@@ -37,11 +38,18 @@ public class PlayerController : Singleton<PlayerController>
         _playerControls.Combat.Dash.performed += _ => Dash();
 
         _startingMoveSpeed = _moveSpeed;
+
+        ActiveInventory._Instance.EquipStartingWeapon();
     }
 
     private void OnEnable()
     {
         _playerControls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        _playerControls.Disable();
     }
 
     private void Update()
@@ -70,7 +78,8 @@ public class PlayerController : Singleton<PlayerController>
 
     private void Move()
     {
-        if (_knockback._GettingKnockedBack) { return; }
+        if (_knockback._GettingKnockedBack || PlayerHealth._Instance._isDead) { return; }
+
         _rb.MovePosition(_rb.position + _movement * (_moveSpeed * Time.fixedDeltaTime));
     }
 
@@ -105,8 +114,8 @@ public class PlayerController : Singleton<PlayerController>
 
     private IEnumerator EndDashRoutine()
     {
-        float dashTime = .2f;
-        float dashCD = .25f;
+        float dashTime = 0.2f;
+        float dashCD = 0.25f;
         yield return new WaitForSeconds(dashTime);
         _moveSpeed = _startingMoveSpeed;
         _myTrailRenderer.emitting = false;
