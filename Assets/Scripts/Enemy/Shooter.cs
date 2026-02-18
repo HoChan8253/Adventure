@@ -13,6 +13,7 @@ public class Shooter : MonoBehaviour, IEnemy
     [SerializeField] private float _timeBetweenBursts;
     [SerializeField] private float _restTime = 1f;
     [SerializeField] private bool _stagger;
+    [Tooltip("Oscillate 기능이 정상 작동하려면 Stagger를 활성화해야 합니다.")]
     [SerializeField] private bool _oscillate;
 
     private bool isShooting = false;
@@ -67,6 +68,7 @@ public class Shooter : MonoBehaviour, IEnemy
                 startAngle = currentAngle;
                 angleStep *= -1;
             }
+
 
             for (int j = 0; j < _projectilesPerBurst; j++)
             {
