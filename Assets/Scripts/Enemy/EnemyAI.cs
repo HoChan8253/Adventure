@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class EnemyAI : MonoBehaviour
 {
     [SerializeField] private float _roamChangeDirFloat = 2f;
-    [SerializeField] private float _attackRange = 5f;
+    [SerializeField] private float _attackRange = 0f;
     [SerializeField] private MonoBehaviour _enemyType;
     [SerializeField] private float _attackCooldown = 2f;
     [SerializeField] private bool _stopMovingWhileAttacking = false;
