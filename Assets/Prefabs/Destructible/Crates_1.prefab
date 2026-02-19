@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1139715288230925756}
   - component: {fileID: -4425176976686088369}
   - component: {fileID: 8624303142742647739}
+  - component: {fileID: 4048979055685172467}
   m_Layer: 0
   m_Name: Crates_1
   m_TagString: Untagged
@@ -134,3 +135,18 @@ CapsuleCollider2D:
   m_Offset: {x: -0.034675837, y: -0.15796769}
   m_Size: {x: 1.5761843, y: 1.5761845}
   m_Direction: 0
+--- !u!114 &4048979055685172467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3874230987693327679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d70309c8518a1444e80215186c5e05c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _goldCoin: {fileID: 3724385036988796345, guid: 0766102b43447f149ad3f504ffe9cea6, type: 3}
+  _healthGlobe: {fileID: 3724385036988796345, guid: 9c92a51a700a0cb49a75daf83bb917db, type: 3}
+  _staminaGlobe: {fileID: 3724385036988796345, guid: 11d3bbce3e902ff4ca1e36532dae90f8, type: 3}

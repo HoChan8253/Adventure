@@ -4,7 +4,13 @@ using System.Collections.Generic;
 
 public class DamageSource : MonoBehaviour
 {
-    [SerializeField] private int _damageAmount = 1;
+    private int _damageAmount;
+
+    private void Start()
+    {
+        MonoBehaviour currentActiveWeapon = ActiveWeapon._Instance._CurrentActiveWeapon;
+        _damageAmount = (currentActiveWeapon as IWeapon).GetWeaponInfo()._weaponDamage;
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {

@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
-
+﻿// 씬 전환 시 사용할 전환 이름을 저장하는 매니저
 public class SceneManagement : Singleton<SceneManagement>
 {
     public string _SceneTransitionName { get; private set; }

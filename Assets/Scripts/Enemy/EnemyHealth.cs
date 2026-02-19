@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
 
+// 적 체력, 피격 연출, 사망 처리 스크립트
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] private int _startingHealth = 3;
@@ -42,6 +42,7 @@ public class EnemyHealth : MonoBehaviour
         if (_currentHealth <= 0)
         {
             Instantiate(_deathVFXPrefab, transform.position, Quaternion.identity);
+            GetComponent<PickUpSpawner>().DropItems();
             Destroy(gameObject);
         }
     }

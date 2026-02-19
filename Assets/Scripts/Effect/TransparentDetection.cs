@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.Tilemaps;
-using System.Collections.Generic;
 
+// 플레이어가 오브젝트 뒤로 들어가면 (y값 기준)
+// 그 오브젝트를 반투명하게 만드는 기능
 public class TransparentDetection : MonoBehaviour
 {
     [Range(0, 1)]
@@ -20,13 +21,14 @@ public class TransparentDetection : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        // 트리거에 들어온 물체가 플레이어인지 검사
         if (other.gameObject.GetComponent<PlayerController>())
         {
-            if (_spriteRenderer)
+            if (_spriteRenderer) // Sprite 의 알파를 페이드
             {
                 StartCoroutine(FadeRoutine(_spriteRenderer, _fadeTime, _spriteRenderer.color.a, _transparencyAmount));
             }
-            else if (_tilemap)
+            else if (_tilemap) // Tilemap 의 알파를 페이드
             {
                 StartCoroutine(FadeRoutine(_tilemap, _fadeTime, _tilemap.color.a, _transparencyAmount));
             }
@@ -35,6 +37,7 @@ public class TransparentDetection : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
+        // 트리거에서 나간 물체가 플레이어인지 검사
         if (other.gameObject.GetComponent<PlayerController>())
         {
             if (_spriteRenderer)
