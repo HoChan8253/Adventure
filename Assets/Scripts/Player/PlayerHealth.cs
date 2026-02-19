@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
+// 플레이어 HP 관리 / 피격 연출 / 사망 처리
 public class PlayerHealth : Singleton<PlayerHealth>
 {
     public bool _isDead { get; private set; }

@@ -1,7 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
 
+// 플레이어 이동 / 방향 전환 / 대시 담당
 public class PlayerController : Singleton<PlayerController>
 {
     public bool _FacingLeft { get { return _facingLeft; } }
@@ -76,6 +76,7 @@ public class PlayerController : Singleton<PlayerController>
         _myAnimator.SetFloat("moveY", _movement.y);
     }
 
+    // 이동 처리
     private void Move()
     {
         if (_knockback._GettingKnockedBack || PlayerHealth._Instance._isDead) { return; }
@@ -83,6 +84,7 @@ public class PlayerController : Singleton<PlayerController>
         _rb.MovePosition(_rb.position + _movement * (_moveSpeed * Time.fixedDeltaTime));
     }
 
+    // 마우스 위치를 기준으로 Sprite 좌우 방향 결정
     private void AdjustPlayerFacingDirection()
     {
         Vector3 mousePos = Input.mousePosition;

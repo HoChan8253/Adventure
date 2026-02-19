@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 
+// 직선으로 날아가는 투사체
 public class Projectile : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed = 22f;
@@ -34,10 +33,12 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        // 충돌 대상이 무엇인지 확인
         EnemyHealth enemyHealth = other.gameObject.GetComponent<EnemyHealth>();
         Indestructible indestructible = other.gameObject.GetComponent<Indestructible>();
         PlayerHealth player = other.gameObject.GetComponent<PlayerHealth>();
 
+        // 트리거가 아닌 실제 충돌 콜라이더일 때만 처리
         if (!other.isTrigger && (enemyHealth || indestructible || player))
         {
             if ((player && _isEnemyProjectile) || (enemyHealth && !_isEnemyProjectile))
@@ -54,6 +55,7 @@ public class Projectile : MonoBehaviour
         }
     }
 
+    // 사거리 초과 시 제거
     private void DetectFireDistance()
     {
         if (Vector3.Distance(transform.position, _startPosition) > _projectileRange)

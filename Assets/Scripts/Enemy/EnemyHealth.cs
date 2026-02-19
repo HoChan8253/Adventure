@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
 
+// 적 체력, 피격 연출, 사망 처리 스크립트
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] private int _startingHealth = 3;

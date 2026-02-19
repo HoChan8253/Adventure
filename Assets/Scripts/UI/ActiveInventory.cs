@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 
+// 인벤토리 UI 에서 현재 선택된 슬롯 관리
+// 슬롯 변경 시 실제 장착 무기 교체하는 매니저
 public class ActiveInventory : Singleton<ActiveInventory>
 {
     private int _activeSlotIndexNum = 0;
@@ -25,6 +25,7 @@ public class ActiveInventory : Singleton<ActiveInventory>
         _playerControls.Enable();
     }
 
+    // 게임 시작 시 기본 무기 장착
     public void EquipStartingWeapon()
     {
         ToggleActiveHighlight(0);
@@ -35,6 +36,7 @@ public class ActiveInventory : Singleton<ActiveInventory>
         ToggleActiveHighlight(numValue - 1);
     }
 
+    // 인벤토리 UI 에서 슬롯 하이라이트 / 무기 교체까지 수행
     private void ToggleActiveHighlight(int indexNum)
     {
         _activeSlotIndexNum = indexNum;
@@ -49,6 +51,7 @@ public class ActiveInventory : Singleton<ActiveInventory>
         ChangeActiveWeapon();
     }
 
+    // 선택된 슬롯 정보를 기반으로 ActiveWeapon을 교체
     private void ChangeActiveWeapon()
     {
 

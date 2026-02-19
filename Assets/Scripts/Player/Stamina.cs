@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-using System.Collections.Generic;
 
+// 플레이어 스태미너 관리 클래스
 public class Stamina : Singleton<Stamina>
 {
     public int CurrentStamina { get; private set; }
@@ -43,6 +43,7 @@ public class Stamina : Singleton<Stamina>
         UpdateStaminaImages();
     }
 
+    // 일정 시간마다 자동 회복
     private IEnumerator RefreshStaminaRoutine()
     {
         while (true)
@@ -52,16 +53,19 @@ public class Stamina : Singleton<Stamina>
         }
     }
 
+    // UI 이미지 갱신
     private void UpdateStaminaImages()
     {
         for(int i = 0; i < _maxStamina; i++)
         {
             if(i <= CurrentStamina - 1)
             {
+                // 현재 스테미너 수만큼 Full 이미지
                 _staminaContainer.GetChild(i).GetComponent<Image>().sprite = _fullStaminaImage;
             }
             else
             {
+                // 나머지는 Empty 이미지
                 _staminaContainer.GetChild(i).GetComponent<Image>().sprite = _emptyStaminaImage;
             }
         }

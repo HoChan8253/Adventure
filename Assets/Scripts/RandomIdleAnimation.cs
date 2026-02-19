@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 
+/* 
+  같은 Idle 애니메이션을 사용하는 여러 오브젝트가
+  모두 같은 타이밍으로 움직이지 않도록
+  시작 시 애니메이션 재생 위치를 랜덤하게 만드는 스크립트
+ */
 public class RandomIdleAnimation : MonoBehaviour
 {
     private Animator _myAnimator;

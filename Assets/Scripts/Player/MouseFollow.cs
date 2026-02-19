@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 
+// 이 오브젝트가 항상 마우스를 바라보도록 만드는 스크립트
 public class MouseFollow : MonoBehaviour
 {
     private void Update()

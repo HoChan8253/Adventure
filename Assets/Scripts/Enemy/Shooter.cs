@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
 
+// 투사체를 연사 또는 원뿔 형태로 발사하는 스크립트
 public class Shooter : MonoBehaviour, IEnemy
 {
     [SerializeField] private GameObject _bulletPrefab;
     [SerializeField] private float _bulletMoveSpeed;
     [SerializeField] private int _burstCount;
     [SerializeField] private int _projectilesPerBurst;
-    [SerializeField][Range(0, 359)] private float _angleSpread;
+    [SerializeField][Range(0, 359)] private float _angleSpread; // 투사체가 퍼지는 각도
     [SerializeField] private float _startingDistance = 0.1f;
     [SerializeField] private float _timeBetweenBursts;
     [SerializeField] private float _restTime = 1f;
@@ -18,6 +18,7 @@ public class Shooter : MonoBehaviour, IEnemy
 
     private bool isShooting = false;
 
+    // 인스펙터 값이 바뀔 때마다 자동으로 호출되는 함수
     private void OnValidate()
     {
         if (_oscillate) { _stagger = true; }
@@ -39,6 +40,7 @@ public class Shooter : MonoBehaviour, IEnemy
         }
     }
 
+    // 발사 로직
     private IEnumerator ShootRoutine()
     {
         isShooting = true;
@@ -97,6 +99,7 @@ public class Shooter : MonoBehaviour, IEnemy
         isShooting = false;
     }
 
+    // 플레이어 방향 기준으로 발사 각도 계산
     private void TargetConeOfInfluence(out float startAngle, out float currentAngle, out float angleStep, out float endAngle)
     {
         Vector2 targetDirection = PlayerController._Instance.transform.position - transform.position;
@@ -116,6 +119,7 @@ public class Shooter : MonoBehaviour, IEnemy
         }
     }
 
+    // currentAngle 기준으로 투사체 스폰 위치 계산
     private Vector2 FindBulletSpawnPos(float currentAngle)
     {
         float x = transform.position.x + _startingDistance * Mathf.Cos(currentAngle * Mathf.Deg2Rad);

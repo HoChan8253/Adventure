@@ -1,8 +1,7 @@
 ﻿using TMPro;
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 
+// 플레이어의 재화를 관리하는 스크립트
 public class EconomyManager : Singleton<EconomyManager>
 {
     private TMP_Text _goldText;

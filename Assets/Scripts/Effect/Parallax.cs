@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 
+// 배경을 카메라 이동에 따라 느리게 움직이는 효과
 public class Parallax : MonoBehaviour
 {
     [SerializeField] private float _parallaxOffset = -0.15f;
@@ -22,6 +21,7 @@ public class Parallax : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // 카메라가 이동하면 배경이 비율만큼 따라 움직임
         transform.position = _startPos + _travel * _parallaxOffset;
     }
 }

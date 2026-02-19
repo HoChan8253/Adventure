@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 
+// 적 이동을 담당하는 컴포넌트
+// EnemyAI 는 어디로 갈지만 결정, 실제 이동 처리는 이 클래스가 담당
 public class EnemyPathfinding : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed = 2f;

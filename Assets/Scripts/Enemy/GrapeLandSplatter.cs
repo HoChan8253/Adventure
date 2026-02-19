@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 
+// 투사체가 착지했을 때 생성되는 잔여물 스크립트
 public class GrapeLandSplatter : MonoBehaviour
 {
     private SpriteFade _spriteFade;

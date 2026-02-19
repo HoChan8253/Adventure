@@ -1,7 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
 
+/* 
+ 드랍 아이템
+ 1. 생성 시 튀어오르는 연출
+ 2. 플레이어가 가까이 오면 빨려들어감
+ 3. 플레이어에 닿으면 보상을 지급
+*/
 public class Pickup : MonoBehaviour
 {
     private enum PickUpType
@@ -62,6 +67,7 @@ public class Pickup : MonoBehaviour
         }
     }
 
+    // 생성 직후 랜덤한 위치로 튀어나가는 연출
     private IEnumerator AnimCurveSpawnRoutine()
     {
         Vector2 startPoint = transform.position;
@@ -72,6 +78,7 @@ public class Pickup : MonoBehaviour
 
         float timePassed = 0f;
 
+        // popDuration 동안 포물선처럼 이동
         while (timePassed < _popDuration)
         {
             timePassed += Time.deltaTime;

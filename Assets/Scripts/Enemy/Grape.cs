@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 
+// Enemy : Grape 스크립트
 public class Grape : MonoBehaviour, IEnemy
 {
     [SerializeField] private GameObject _grapeProjectilePrefab;

@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 
+// 아이템을 드랍하는 스크립트
 public class PickUpSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject _goldCoin, _healthGlobe, _staminaGlobe;

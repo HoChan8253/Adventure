@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 
+// 어떤 클래스든 상속하면 씬 전체에서 단 하나만 존재하도록 만드는 베이스 클래스
 public class Singleton<T> : MonoBehaviour where T : Singleton<T>
 {
     private static T _instance;

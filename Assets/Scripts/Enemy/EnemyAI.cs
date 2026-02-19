@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
 
+// 적의 간단한 AI
+// 정찰하다가 플레이어가 범위 안에 들어오면 공격
 public class EnemyAI : MonoBehaviour
 {
     [SerializeField] private float _roamChangeDirFloat = 2f;
@@ -55,12 +56,14 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    // 정찰 상태
     private void Roaming()
     {
         _timeRoaming += Time.deltaTime;
 
         _enemyPathfinding.MoveTo(_roamPosition);
 
+        // 플레이어가 공격 범위 안에 들어오면 공격 상태로 전환
         if (Vector2.Distance(transform.position, PlayerController._Instance.transform.position) < _attackRange)
         {
             _state = State.Attacking;
@@ -72,13 +75,16 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    // 공격 상태
     private void Attacking()
     {
+        // 플레이어가 공격 범위 밖으로 나가면 다시 정찰 상태로 전환
         if (Vector2.Distance(transform.position, PlayerController._Instance.transform.position) > _attackRange)
         {
             _state = State.Roaming;
         }
 
+        // 쿨타임이 끝나서 공격 가능한 상태일때
         if (_attackRange != 0 && _canAttack)
         {
 
@@ -98,6 +104,7 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    // 공격 쿨타임
     private IEnumerator AttackCooldownRoutine()
     {
         yield return new WaitForSeconds(_attackCooldown);
