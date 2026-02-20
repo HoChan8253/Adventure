@@ -18,11 +18,11 @@ https://www.youtube.com/watch?v=9zzUq6T-rtA
 
 ## Game Info
 
-- Title : Adventure
-- Genre : 2D Top-Down Action
-- Platform : PC ( Windows )
-- Engine : Unity 2022.3.32f3
-- Project Type : Personal Project
+- **Title** : Adventure
+- **Genre** : 2D Top-Down Action
+- **Platform** : PC ( Windows )
+- **Engine** : Unity 2022.3.32f3
+- **Project Type** : Personal Project
 
 ---
 
