@@ -5825,10 +5825,50 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 656255293855659718, guid: 74d6ef4c78aeba542b50c73b1d19cee0, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].x
+      value: 22.605145
+      objectReference: {fileID: 0}
+    - target: {fileID: 656255293855659718, guid: 74d6ef4c78aeba542b50c73b1d19cee0, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].y
+      value: 16.6335
+      objectReference: {fileID: 0}
+    - target: {fileID: 656255293855659718, guid: 74d6ef4c78aeba542b50c73b1d19cee0, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
+      value: -22.688278
+      objectReference: {fileID: 0}
+    - target: {fileID: 656255293855659718, guid: 74d6ef4c78aeba542b50c73b1d19cee0, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].y
+      value: 16.695637
+      objectReference: {fileID: 0}
+    - target: {fileID: 656255293855659718, guid: 74d6ef4c78aeba542b50c73b1d19cee0, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].x
+      value: -22.713547
+      objectReference: {fileID: 0}
+    - target: {fileID: 656255293855659718, guid: 74d6ef4c78aeba542b50c73b1d19cee0, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].y
+      value: -16.214108
+      objectReference: {fileID: 0}
+    - target: {fileID: 656255293855659718, guid: 74d6ef4c78aeba542b50c73b1d19cee0, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].x
+      value: 22.546549
+      objectReference: {fileID: 0}
+    - target: {fileID: 656255293855659718, guid: 74d6ef4c78aeba542b50c73b1d19cee0, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].y
+      value: -16.160866
+      objectReference: {fileID: 0}
     - target: {fileID: 785338178959676132, guid: 74d6ef4c78aeba542b50c73b1d19cee0, type: 3}
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 961120856}
+    - target: {fileID: 2543024811199816616, guid: 74d6ef4c78aeba542b50c73b1d19cee0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.15983291
+      objectReference: {fileID: 0}
+    - target: {fileID: 3113610102324992378, guid: 74d6ef4c78aeba542b50c73b1d19cee0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.17
+      objectReference: {fileID: 0}
     - target: {fileID: 3569273522413645404, guid: 74d6ef4c78aeba542b50c73b1d19cee0, type: 3}
       propertyPath: m_Name
       value: Camera

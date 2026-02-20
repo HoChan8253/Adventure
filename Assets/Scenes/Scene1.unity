@@ -52628,7 +52628,7 @@ Transform:
   m_GameObject: {fileID: 2060696780259337473}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.87, y: 0, z: 0}
+  m_LocalPosition: {x: 1.51, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -52843,14 +52843,6 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 2018447508}
-    - target: {fileID: 2543024811199816616, guid: 74d6ef4c78aeba542b50c73b1d19cee0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.3298329
-      objectReference: {fileID: 0}
-    - target: {fileID: 3113610102324992378, guid: 74d6ef4c78aeba542b50c73b1d19cee0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3569273522413645404, guid: 74d6ef4c78aeba542b50c73b1d19cee0, type: 3}
       propertyPath: m_Name
       value: Camera
