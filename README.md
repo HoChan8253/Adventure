@@ -31,9 +31,9 @@ https://www.youtube.com/watch?v=9zzUq6T-rtA
 | Action | Key |
 |--------|-----|
 | Move | WASD |
-| Attack | Mouse Click |
-| Dash | Shift |
-| Weapon Change | Number Keys |
+| Attack | Mouse Left Click |
+| Dash | Space |
+| Weapon Change | Number 1 ~ 3 |
 
 ---
 
